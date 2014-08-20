@@ -1,0 +1,19 @@
+*.class
+*.log
+
+# sbt specific
+.cache/
+.history/
+.lib/
+dist/*
+target/
+project/boot/
+project/plugins/project/
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
