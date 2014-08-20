@@ -10,7 +10,7 @@ scalacOptions ++= Seq(
   "-language:higherKinds",
   "-language:implicitConversions",
   "-unchecked",
-  "-Xfatal-warnings",
+  // "-Xfatal-warnings", - not here because we want to observe match no exhaustive
   "-Xlint",
   "-Yno-adapted-args",
   "-Ywarn-dead-code",
