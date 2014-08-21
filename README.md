@@ -22,17 +22,16 @@ A look at the problems and alternatives to `scala.Enumeration`.
 
 ### Same type after erasure
 
-
 	scala> object Colours extends Enumeration {
 	     |   val Red, Amber, Green = Value
 	     | }
 	defined object Colours
-	
+
 	scala> object Weekdays extends Enumeration {
 	     |  val Mon,Tue,Wed,Thu,Fri = Value
 	     | }
 	defined object Weekdays
-	
+
 	scala> object Fs {
 	     | def f(x: Colours.Value) = "colour"
 	     | def f(x: Weekdays.Value) = "weekday"
@@ -50,16 +49,16 @@ Or if you prefer:
 
 	scala> def light(c: Colours.Value) = s"Lighting up all $c"
 	light: (c: Colours.Value)String
-	
+
 	scala> light(Colours.Red)
 	res5: String = Lighting up all Red
-	
+
 	scala> light(Weekdays.Mon)
 	<console>:11: error: type mismatch;
 	 found   : Weekdays.Value
 	 required: Colours.Value
 	              light(Weekdays.Mon)
-	
+
 	scala> light(Weekdays.Mon.asInstanceOf[Colours.Value])
 	res7: String = Lighting up all Mon
 
@@ -93,6 +92,7 @@ TODO
 - pattern matching + exhaustiveness
 - extending methods on them?
 - serialization
+- one class?
 - ?
 
 
@@ -100,7 +100,9 @@ TODO
 
 ### Sealed traits
 
-TODO
+(Example now in this project)
+
+* you need to add your own list of values, which is error prone
 
 
 ### The Klang Enum
@@ -116,7 +118,7 @@ https://github.com/cb372/enumerate
 
 ### Using Java Enumerations
 
-?
+If you want to interop from Scala into Java as a Enum, write a Java Enum.
 
 ### Shapeless?
 
