@@ -1,5 +1,8 @@
 # Scala Enumerations
 
+
+Enumeration an example of adding a feature via a library, not a language change.
+
 A look at the problems and alternatives to `scala.Enumeration`.
 
 
@@ -94,6 +97,11 @@ TODO
 - serialization
 - one class?
 - ?
+
+Regarding one class:
+
+> I really think that enums should be lightweight. One class (or even two) per value is not acceptable. If you are willing to pay that sort of price, it's not too burdensome to just define the case objects directly. Enums fill a different niche: essentially as efficient as integer constants but safer and more convenient to define and to use.
+from [Martin on the mailing list](https://groups.google.com/d/msg/scala-internals/8RWkccSRBxQ/U4y0XpRJfdQJ)
 
 
 ## Alternatives
