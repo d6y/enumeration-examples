@@ -27,12 +27,12 @@ object ScalaLangEnumeration extends App {
     case WeekDay.Sat | WeekDay.Sun => true
   }
 
-
-  // WeekDay.Tue < WeekDay.Mon
-  // -> false
-
-  // WeekDay.Tue > WeekDay.Mon
-  // -> true
+  assert(WeekDay.Mon < WeekDay.Tue)
+  assert(WeekDay.Tue < WeekDay.Wed)
+  assert(WeekDay.Wed < WeekDay.Thu)
+  assert(WeekDay.Thu < WeekDay.Fri)
+  assert(WeekDay.Fri < WeekDay.Sat)
+  assert(WeekDay.Sat < WeekDay.Sun)
 
   // Planet example:
   // Via: http://stackoverflow.com/a/6546480

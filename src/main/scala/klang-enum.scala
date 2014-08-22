@@ -1,3 +1,10 @@
+/*
+
+https://gist.github.com/viktorklang/1057513
+
+...but modified to add ordering
+
+*/
 object KlangEnum extends App {
 
   trait Enum { //DIY enum type
@@ -17,8 +24,10 @@ object KlangEnum extends App {
     def values: Vector[EnumVal] = _values.get //Here you can get all the enums that exist for this type
 
     //This is the trait that we need to extend our EnumVal type with, it does the book-keeping for us
-    protected trait Value { self: EnumVal => //Enforce that no one mixes in Value in a non-EnumVal type
+    protected trait Value extends Ordered[Value] { self: EnumVal => //Enforce that no one mixes in Value in a non-EnumVal type
       final val ordinal = addEnumVal(this) //Adds the EnumVal and returns the ordinal
+
+      def compare(that: Value) = this.ordinal - that.ordinal
 
       def name: String //All enum values should have a name
 
@@ -47,6 +56,13 @@ object KlangEnum extends App {
 
   val mv = WeekDay.Mon.ordinal
   println(s"Monday ordinal: $mv")
+
+  assert(WeekDay.Mon < WeekDay.Tue)
+  assert(WeekDay.Tue < WeekDay.Wed)
+  assert(WeekDay.Wed < WeekDay.Thu)
+  assert(WeekDay.Thu < WeekDay.Fri)
+  assert(WeekDay.Fri < WeekDay.Sat)
+  assert(WeekDay.Sat < WeekDay.Sun)
 
   def weekend(d: WeekDay.EnumVal) = d match {
     case WeekDay.Sat | WeekDay.Sun => true
