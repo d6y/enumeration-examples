@@ -1,6 +1,6 @@
 name := "enum-explore"
 
-scalaVersion := "2.11.2"
+scalaVersion in ThisBuild := "2.11.2"
 
 scalacOptions ++= Seq(
   "-deprecation",
@@ -19,7 +19,12 @@ scalacOptions ++= Seq(
   "-Xfuture"
 )
 
-libraryDependencies ++= Seq(
+libraryDependencies in ThisBuild ++= Seq(
   "org.specs2" %% "specs2" % "2.3.11" % "test",
-  "org.scalaz" %% "scalaz-core" % "7.1.0"
+  "org.scalaz" %% "scalaz-core" % "7.1.0",
+  "org.scala-lang" % "scala-reflect" % scalaVersion.value
 )
+
+lazy val macros = project.in(file("macros"))
+
+lazy val enums = project.in(file(".")).dependsOn(macros)

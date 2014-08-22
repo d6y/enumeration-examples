@@ -45,7 +45,6 @@ We will look in more detail at these in a moment. But let first me ask: what do 
 - exhaustiveness test on pattern matching
 - iterate over the members
 - ability to go beyond an identifier and string
-- serialisation
 - efficiency of representation
 
 That last one may seem a small point, but it gets to the heart of what it means to be an enumeration for some.  For example:
@@ -54,11 +53,13 @@ That last one may seem a small point, but it gets to the heart of what it means 
 
 We might also add:
 
-- values are associated with consecutive integers
-- values print as the name with which they were defined
+- values have an identifier, which is a consecutive integer
+- values have nice names, which you don't have to declare yourself
 - values are ordered
 
 ...depending on what you expect of an enumeration (again, see comments from [scala-internals](https://groups.google.com/d/msg/scala-internals/8RWkccSRBxQ/NUwHtj-VsjQJ)).
+
+
 
 
 
@@ -84,6 +85,21 @@ We might also add:
 	have same type after erasure: (x: Enumeration#Value)String
 	       def f(x: Weekdays.Value) = "weekday"
            ^
+
+object Colours extends Enumeration {
+  val Red, Amber, Green = Value
+}
+
+object Weekdays extends Enumeration {
+  val Mon,Tue,Wed,Thu,Fri = Value
+}
+
+object Functions {
+  def f(x: Colours.Value) = "That's a colour"
+  def f(x: Weekdays.Value) = "That's a weekday"
+}
+
+
 
 
 Or if you prefer:
