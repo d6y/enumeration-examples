@@ -28,6 +28,12 @@ object ScalaLangEnumeration extends App {
   }
 
 
+  // WeekDay.Tue < WeekDay.Mon
+  // -> false
+
+  // WeekDay.Tue > WeekDay.Mon
+  // -> true
+
   // Planet example:
   // Via: http://stackoverflow.com/a/6546480
 

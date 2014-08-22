@@ -27,6 +27,16 @@ object SealedEnum extends App {
   sealed-enum.scala:24: match may not be exhaustive.
   [warn] It would fail on the following inputs: Fri, Mon, Thu, Tue, Wed
   [warn]   def weekend(d: WeekDay.EnumVal) = d match {
+  ...which is a good thing.
   */
+
+  // NB:
+  // Cannot create new instances (sealed).
+  // == equality works
+  // WeekDay.Tue.asInstanceOf[WeekDay.Mon] fails
+
+  // TODO: fill out planet example maybe
+
+
 
 }
