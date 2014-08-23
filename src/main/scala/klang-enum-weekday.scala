@@ -74,25 +74,5 @@ object KlangEnum extends App {
   [error]   def weekend(d: WeekDay.EnumVal) = d match {
   */
 
-  // Planet example:
-  object Planet extends Enum {
-    sealed abstract class EnumVal(val mass: Double, val radius: Double) extends Value {
-      def surfaceGravity: Double = Planet.G * mass / (radius * radius)
-      def surfaceWeight(otherMass: Double): Double = otherMass * surfaceGravity
-    }
-    val MERCURY = new EnumVal(3.303e+23, 2.4397e6) { val name = "Mercury" }
-    val VENUS   = new EnumVal(4.869e+24, 6.0518e6) { val name = "Venus"   }
-    val EARTH   = new EnumVal(5.976e+24, 6.37814e6){ val name = "Earth"   }
-    val MARS    = new EnumVal(6.421e+23, 3.3972e6) { val name = "Mars"    }
-    val JUPITER = new EnumVal(1.9e+27,   7.1492e7) { val name = "Jupiter" }
-    val SATURN  = new EnumVal(5.688e+26, 6.0268e7) { val name = "Saturn"  }
-    val URANUS  = new EnumVal(8.686e+25, 2.5559e7) { val name = "Uranus"  }
-    val NEPTUNE = new EnumVal(1.024e+26, 2.4746e7) { val name = "Neptune" }
-
-    private val G: Double = 6.67300E-11
-  }
-
-  println(Planet.values.filter(_.radius > 7.0e6))
-  // -> Vector(Jupiter, Saturn, Uranus, Neptune)
 
 }

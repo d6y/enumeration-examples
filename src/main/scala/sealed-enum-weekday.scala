@@ -39,13 +39,4 @@ object SealedEnum extends App {
   ...which is a good thing.
   */
 
-  // NB:
-  // Cannot create new instances (sealed).
-  // == equality works
-  // WeekDay.Tue.asInstanceOf[WeekDay.Mon] fails
-
-  // TODO: fill out planet example maybe
-
-
-
 }
