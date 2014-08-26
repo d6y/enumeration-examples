@@ -57,3 +57,5 @@ This repository demonstrates the pros and cons of `scala.Enumeration` and examin
 	Your weight on Uranus  is   63.4 kg
 	Your weight on Neptune is   79.7 kg
 	[success] Total time: 18 s, completed 23-Aug-2014 10:22:05
+	
+**If you're interested in this content, sign up to our mailing list at http://underscore.io where we post updates and code samples about Scala, Scala Macros, and functional programming in general.**
