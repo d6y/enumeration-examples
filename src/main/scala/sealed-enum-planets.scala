@@ -5,7 +5,7 @@ object SolarSystemPlanets {
   sealed abstract class Planet(
     val orderFromSun : Int,
     val mass         : Kilogram,
-    val radius       : Meters) extends Ordered[Planet] {
+    val radius       : Meter) extends Ordered[Planet] {
 
       // SealedEnumPlanets$SolarSystemPlanets$Mercury$ -> Mercury (YMMV)
       lazy val name: String = {
@@ -17,7 +17,7 @@ object SolarSystemPlanets {
 
       lazy val surfaceGravity = G * mass / (radius * radius)
 
-      def surfaceWeight(otherMass: Double) = otherMass * surfaceGravity
+      def surfaceWeight(otherMass: Kilogram) = otherMass * surfaceGravity
 
       override def toString = name
   }
@@ -35,7 +35,7 @@ object SolarSystemPlanets {
   val planets: Set[Planet] = sealedInstancesOf[Planet]
 
   type Kilogram = Double
-  type Meters   = Double
+  type Meter    = Double
   private val G = 6.67300E-11 // universal gravitational constant  (m3 kg-1 s-2)
 }
 
