@@ -8,11 +8,11 @@ This repository demonstrates the pros and cons of `scala.Enumeration` and examin
 
 **_src/main/scala_** - examples of various enumerations:
 
-* _scala-lang-enum.scala_ - the `scala.Enumeation` example
+* _scala-lang-enum.scala_ - the `scala.Enumeration` example
 
-* _kalng_enum_weekday.scala_ and _klang_enum_palnets.scala_ - examples using the DIY Enum class.
+* _klang_enum_weekday.scala_ and _klang_enum_planets.scala_ - examples using the DIY Enum class.
 
-* _sealed-eunum-weekday.scala_ and _sealed-enum-planets.scala_ - examples using sealed traits (or abstract class) and class objects (or classes).
+* _sealed-enum-weekday.scala_ and _sealed-enum-planets.scala_ - examples using sealed traits (or abstract class) and class objects (or classes).
 
 **macros** - an SBT project containing the macros used in the _sealed-enum-planets.scala_ example.
 
